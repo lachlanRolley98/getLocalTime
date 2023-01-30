@@ -1,6 +1,10 @@
+COMP1511 18s1 (webcms)
+Assignment 1 - Time To Code
+COMP1511 18s1 (flask)
+spec version: 1.2.1 | last updated: 2018-03-28 12:00:00 +1100
 
-
- write a program that will work out what the local time is in your town so when phoning home you don't call too early or too late and wake your family.
+Summary
+Your task for the first assignment is to write a program that will work out what the local time is in your town so when phoning home you don't call too early or too late and wake your family.
 
 To do this, you will write a function to calculate the local time in a given town (in Australia or New Zealand), given the current time in UTC.
 
