@@ -1,5 +1,3 @@
-Don't push changes to this repository directly.
+Basically this code knows the current time where you are,
 
-Don't change the repository via the web interface
-
-Submit your work using give, and it will be automatically pushed to this repository.
+give it another state and it will tell you the time there.
