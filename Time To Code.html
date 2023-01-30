@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)file:///C:/Users/rolle/Downloads/Assignment%201%20-%20Time%20To%20Code.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+
+Assignment 1 - Time To Code
+
+</title>
+
+
+
+
+<!-- <link href="/~cs1511/18s1/flask.cgi/static/bootstrap.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="./Time To Code_files/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="./Time To Code_files/course.css" rel="stylesheet">
+<!-- <script type="text/javascript" src="/~cs1511/18s1/flask.cgi/static/jquery.min.js"></script> -->
+<!-- <script type="text/javascript" src="/~cs1511/18s1/flask.cgi/static/bootstrap.min.js"></script> -->
+<script src="./Time To Code_files/jquery-3.3.1.min.js.download"></script>
+<script src="./Time To Code_files/popper.min.js.download"></script>
+<script src="./Time To Code_files/bootstrap.min.js.download" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./Time To Code_files/course.js.download"></script>
+
+<!-- prism code-highligting -->
+<link href="./Time To Code_files/prism.css" rel="stylesheet">
+<!-- defer loading of prism.js script until DOM is loaded, as per PR #26 and https://stackoverflow.com/a/24070373 -->
+<script type="text/javascript" src="./Time To Code_files/prism.js.download" defer=""></script>
+
+<link rel="canonical" href="https://cgi.cse.unsw.edu.au/~cs1511/18s1/">
+</head>
+<body class="container">
+
+
+
+
+<div id="heading" class="row">
+
+
+<div class="col-3 text-left">
+<a class="heading_link" target="_blank" id="left_heading_link" href="https://cgi.cse.unsw.edu.au/~cs1511/18s1/">COMP1511 18s1 (webcms)</a>
+</div>
+
+<div class="col-6 text-center">
+
+
+Assignment 1 - Time To Code
+
+
+</div>
+
+<div class="col-3 text-right">
+<a class="heading_link" target="_blank" id="right_heading_link" href="https://cgi.cse.unsw.edu.au/~cs1511/18s1/index.html">COMP1511 18s1 (flask)</a>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="text-right text-muted"><small>
+  spec version: 1.2.1 |
+  last updated: 2018-03-28 12:00:00 +1100
+</small></p>
+
+<h2>Summary</h2>
+<p>
+
+Your task for the first assignment is to write a program that will <b>work out what the local time is in your town</b> so
+when phoning home you don't call too early or too late and wake your family.
+
+</p><p>
+To do this, you will write a function to calculate the local time in a given town (in Australia or New Zealand), given the current time in <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time)">UTC</a>.
+
+</p><p>
+You will also be required to write a series of tests for this function.
+
+</p><h2>Requirements</h2>
+<p>
+The main task in this assignment to write a function, <code>get_local_time</code>, which, given as input a town in Australia or New Zealand  and a date and time in <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC</a>, returns the local time in that town.
+</p><p>
+The town will be one of these 14 towns: <i>Adelaide</i>, <i>Brisbane</i>, <i>Broken Hill</i>, <i>Canberra</i>, <i>Darwin</i>, <i>Eucla</i>, <i>Hobart</i>, <i>Lord Howe Island</i>, <i>Melbourne</i>, <i>Perth</i>, <i>Sydney</i>, <i>Auckland</i>, <i>Christchurch</i>, <i>Wellington</i>.
+</p><p>
+The date will be in 2018.
+</p><p>
+You are also required to write a function, <i>run_unit_tests</i>, which tests <i>get_local_time</i> on valid and invalid inputs.
+</p><p>
+Note: it is a <b>requirement</b> that you create your own additional functions for this assignment. See the "Clarifications/Assumptions/Restrictions" section below for details.
+
+</p><p>
+The assignment is due on Tuesday 10 April 23:59:59.
+
+
+</p><h2>Background</h2>
+<p>
+As local time varies between regions, computers typically maintain time in <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC</a>. This, for example, allows time to be used across the internet without ambiguity.
+However, times in <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC</a> must be converted to local time to be convenient for humans.
+</p><p>
+Your task is to write a function to do this conversion.
+</p><p>
+For example, your function might be asked to convert the UTC time of Saturday March 24 06:30 2018
+to the local time in Sydney.
+</p><p>
+In March 2018, Sydney uses Australian Eastern Daylight Time which is UTC+11, so your function should return 1730.
+</p><p>
+Note that your function only returns the corresponding local time. The local date could be different to the UTC date.
+Your function does need not to return the local date.
+</p><p>
+You will need to research time in Australia and New Zealand, including how time zones and daylight savings work.
+This is an important and useful part of this assignment. Exploring and clarifying the specification of a problem
+is a normal part of a coding task. Also, any good programmer needs a precise understanding of time.
+
+
+</p><h2>Planning</h2>
+<p>
+Start by thinking about the problem, and making sure you understand it well.
+Do examples on pen and paper. Draw diagrams. Don't be in a rush to start typing.
+</p><p>
+If there are things you don't understand, you can ask questions on the <a href="https://edstem.org/courses/1950">course forum</a>.
+</p><p>
+The C features needed for this assignment are deliberately simple - essentially: ints, arithmetic, if statements and
+functions. You are not permitted to use C features such as loops and arrays. These wouldn't be particularly helpful
+and we want you to focus on analysing the problem, designing a solution and testing your solution.
+</p><p>
+You should allow at least two weeks to get it all working perfectly. Start at once and set some time aside to work on it regularly. You will not solve it well in one long intense session. Instead, plan regular periods. It will take much more time to do it than you expect if it is your first coding assignment.
+There is a lot to learn about tackling a problem like this.
+
+
+</p><h2>Representation</h2>
+<p>
+We represent all values in this assignment as integers.
+</p><p>
+The 14 towns will be represented by the integers 0..13. You are given <b>#defines</b> for these values which you must use.
+</p><p>
+Months will be represented by the integers 1..12.
+</p><p>
+Days will be represented by the integers 1..31.
+</p><p>
+Times will be represented as <b>hours * 100 + minutes</b>. For example, <b>6:45am</b> will be represented by the integer <b>645</b>
+and <b>7:20pm</b> will be represented by the integer <b>1920</b>. <b>12:00am</b> (midnight) will be represented by the integer <b>0</b>.
+</p><p>
+Hence times will be represented by integers in the range 0..2359 but not all integers in the range  0..2359 are valid times, for example, <b>1567</b> is not a valid time.
+</p><p>
+The seconds value in the time is always assumed to be zero in this assignment.
+The year in UTC dates is always assumed to be 2018.
+
+
+</p><h2>Initial Code</h2>
+<p>
+Here is the <a href="https://cgi.cse.unsw.edu.au/~cs1511/18s1//activities/time2code/time2code.c">code to start the assignment</a>.
+</p><p>
+Read this file carefully. You must use this file to start the assignment.
+</p><p>
+Add your code to this file in the indicated places.
+</p><p>
+Do not change other parts of the file.
+
+</p><h2>Implementing <i>get_local_time</i></h2>
+<i>get_local_time</i> is the most important function in the assignment.
+<p>
+<i>get_local_time</i> is given as 4 parameters: a town and a UTC month, day and time.
+All use the representations described above.
+</p><p>
+If any of <i>get_local_time</i> parameters are invalid it should return the constant <code>INVALID_INPUT</code> which
+is #defined in <code>time2code.c</code>
+
+Otherwise <i>get_local_time</i> should return the local time in the town, using the representation described above.
+</p><p>
+
+You are given this code for <i>get_local_time</i>.
+
+
+
+
+
+
+    
+        
+    
+
+
+
+    
+        </p><pre class="program  language-clike"><code class="  language-clike">int <span class="token function">get_local_time</span><span class="token punctuation">(</span>int town<span class="token punctuation">,</span> int utc_month<span class="token punctuation">,</span> int utc_day<span class="token punctuation">,</span> int utc_time<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// CHANGE THIS FUNCTION</span>
+    <span class="token comment">// YOU ARE NOT PERMITTED TO USE ARRAYS, LOOPS, PRINTF OR SCANF</span>
+    <span class="token comment">// SEE THE ASSIGNMENT SPECIFICATION FOR MORE RESTRICTIONS</span>
+    <span class="token keyword">return</span> utc_time <span class="token operator">+</span> TIMEZONE_AEDT_OFFSET<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+
+
+
+
+
+
+Add your code to this function. You will have to change the return statement.
+The return is included only so the function compiles.
+It only returns the correct value in a few cases.
+<p>
+You should define your own functions and call them from <i>get_local_time</i>.
+
+
+</p><h2>Implementing <i>run_unit_tests</i></h2>
+<p>
+You are given this code for <i>run_unit_tests</i>.
+
+
+
+
+
+
+    
+        
+    
+
+
+
+    
+        </p><pre class="program  language-clike"><code class="  language-clike">void <span class="token function">run_unit_tests</span><span class="token punctuation">(</span>void<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 2 example unit tests</span>
+
+    <span class="token comment">// UTC midnight on 20th March -&gt; time in Sydney: 11am AEDT</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span><span class="token function">get_local_time</span><span class="token punctuation">(</span>TOWN_SYDNEY<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 42 is not a valid month</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span><span class="token function">get_local_time</span><span class="token punctuation">(</span>TOWN_SYDNEY<span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">==</span> INVALID_INPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// ADD YOUR ASSERT STATEMENTS HERE</span>
+
+    <span class="token comment">// you should add at least 40 more assert statements to this function</span>
+    <span class="token comment">// with a comment for each test explaining it</span>
+
+    <span class="token comment">// there should be comment before this function</span>
+    <span class="token comment">// explaining your overall testing strategy</span>
+<span class="token punctuation">}</span></code></pre>
+
+
+
+
+
+
+<p>
+<i>run_unit_tests</i> includes two unit tests. Add your own unit tests for inputs to <i>run_unit_tests</i>.
+Implement them in exactly the same way as the example unit tests using <code>assert</code> statements.
+</p><p>
+Do not take the inputs autotest uses and add them to <i>run_unit_tests</i> - invent your own tests.
+
+
+</p><h2>Autotest</h2>
+<p>
+A major part of the assignment is developing your own testing.
+
+</p><p>
+Autotest is also available and runs a few tests to ensure
+you have understood the structure of the assignment.
+
+</p><pre class="command_line"><kbd class="shell">1511 autotest time2code</kbd>
+</pre>
+<p>
+Autotest will only test a small part of your code.
+You will have to do most of the testing.
+
+
+</p><h2>Clarifications/Assumptions/Restrictions</h2>
+<h3>Clarifications</h3>
+<p>
+8am is often written as "0800". Don't worry about the leading zero.
+In this assignment, we represent 8am as the integer 800.
+</p><p>
+You cannot assume that the input to <i>get_local_time</i> will be valid.
+</p><p>
+You can assume the UTC date is in 2018.
+
+</p><h3>Requirements</h3>
+<h4>Using #defines</h4>
+<p>
+You <b>must</b> use the provided #defines in <code>time2code.c</code> such as <code>TOWN_ADELAIDE</code> and <code>TIMEZONE_ACDT_OFFSET</code>.
+</p><pre><code class="program">
+// You must use the provided #defines.
+
+// This is valid:
+if (town == TOWN_ADELAIDE)
+
+// This is INVALID:
+if (town == 0)
+</code></pre>
+<p>
+You may add your own #defines (and we encourage you to do so).
+</p><p>
+You <b>must not</b> treat the town #defines as numbers.
+</p><p>
+This means you cannot check whether something is <b>less than</b> or <b>greater than</b> a town #define.
+</p><p>
+You can only check that something is <b>equal</b> to the town #defines.
+</p><pre><code class="program">
+// You must not treat the #defines as numbers.
+
+// This is INVALID
+if (town &lt; TOWN_AUCKLAND)
+
+// This is valid:
+if (town == TOWN_AUCKLAND)
+
+// For example, this is NOT a valid way to check if a town is in New Zealand:
+
+// This is INVALID:
+if (town &gt; 11 &amp;&amp; town &lt;= 13)
+
+// This is INVALID:
+if (town &gt; TOWN_AUCKLAND &amp;&amp; town &lt;= TOWN_WELLINGTON)
+</code></pre>
+<p>
+Note that it <i>is</i> fine to check that the town you've been given is within the overall valid range of towns:
+</p><pre><code class="program">
+// This is valid
+#define N_TOWNS 14
+if (town &lt; 0 || town &gt;= N_TOWNS)
+</code></pre>
+<p>
+</p><h4>Additional Functions</h4>
+<p>
+Note: it is a <b>requirement</b> that you create your own additional functions for this assignment.
+</p><p>
+You must make a "non-token" effort at splitting your solution up sensibly into functions that improve the code's readability; simply creating a second function and shifting a large chunk of your code into it wouldn't satisfy this requirement.
+</p><p>
+If you have any concerns about what this means or whether your code meets this requirement, you can talk to your tutor who will be happy to give you advice and feedback.
+
+</p><h4>Invalid Input</h4>
+<p>
+Your <i>get_local_time</i> function <b>must</b> check that its parameters are valid and return <code>INVALID_INPUT</code> if
+they are not. Your function will be tested on invalid inputs.
+For example, it might be tested by being given February 31 as the month and day.
+</p><p>
+You are required to use <code>assert</code> in <i>run_unit_tests</i> and
+are permitted to use it elsewhere.
+
+
+
+</p><h3>Restrictions</h3>
+<p>
+You should use only <b>int</b> variables in this assignment.
+</p><p>
+You are not permitted to use arrays in this assignment. You are also not permitted to use structs or unions in this assignment.
+</p><p>
+You are not permitted to use loops. You are not permitted to use <code>while</code>, <code>for</code>, <code>do</code> or
+<code>goto</code> statements in this assignment.
+</p><p>
+You are not permitted to use <code>switch</code> statements in this assignment.
+</p><p>
+The functions you write are not permitted to call functions from the standard C library or any other library.
+</p><p>
+The functions you write must only call other functions you write.
+</p><p>
+Your functions must not call <code>scanf</code>.
+</p><p>
+Your functions must not call <code>printf</code>.
+</p><p>
+One exception: during debugging you may need to add calls to <code>printf</code> to your functions.
+Make sure you remove these calls to <code>printf</code> before your final submission.
+Your code will fail all automarking tests if calls to printf are left in your functions.
+</p><p>
+Note, the main function you have been given calls <code>printf</code> and <code>scanf</code>
+to help you in debugging your functions. Do not change this main function.
+</p><p>
+</p><h2>Changelog</h2>
+<dl class="row">
+<dt class="col-3">
+    v1.1<br>
+    <small>(2018-03-24 18:25:55 +1100)</small>
+  </dt>
+  <dd class="col-9">
+    <ul class="list-inline">
+      <li class="list-inline-item">added explicit requirement for using functions</li><li class="list-inline-item">added clarification about daylight savings</li><li class="list-inline-item">added clarification about using the provided #defines correctly</li><li class="list-inline-item">restructured clarifications/assumptions/restrictions section into multiple sections</li>
+    </ul>
+  </dd><dt class="col-3">
+    v1.1.1<br>
+    <small>(2018-03-24 19:40:18 +1100)</small>
+  </dt>
+  <dd class="col-9">
+    <ul class="list-inline">
+      <li class="list-inline-item">further clarification about using provided #defines</li>
+    </ul>
+  </dd><dt class="col-3">
+    v1.2<br>
+    <small>(2018-03-26 17:56:10 +1100)</small>
+  </dt>
+  <dd class="col-9">
+    <ul class="list-inline">
+      <li class="list-inline-item"><i>further</i> clarification about using the provided #defines</li><li class="list-inline-item">added more examples of valid / invalid uses of the provided #defines</li>
+    </ul>
+  </dd><dt class="col-3">
+    v1.2.1<br>
+    <small>(2018-03-28 12:00:00 +1100)</small>
+  </dt>
+  <dd class="col-9">
+    <ul class="list-inline">
+      <li class="list-inline-item"><i>further</i> clarification about using the provided #defines</li><li class="list-inline-item">added more examples of valid / invalid uses of the provided #defines</li>
+    </ul>
+  </dd>
+</dl>
+<p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+
+
+
+
+<h2>Attribution of Work</h2>
+
+This is an individual assignment. The work you submit must be your own work and only your
+work apart from these exceptions.  Joint work is not permitted.
+<p>
+You are not permitted to request help with the assignment apart from
+in the course forum, help sessions or from course lecturers or tutors.
+</p><p>
+Do not provide or show your assignment work to any other person (including by posting it on the forum)
+apart from the teaching staff of COMP1511.
+
+</p><p>
+The work you submit must otherwise be entirely your own work.  Submission of work partially or completely derived
+from any other person or jointly written with any other person is not permitted.
+The penalties for such an offence may include negative marks,
+automatic failure of the course and possibly other academic discipline.
+Assignment submissions will be examined both automatically and manually
+for such submissions.
+</p><p>
+Relevant scholarship authorities will be informed if students holding scholarships
+are involved in an incident of plagiarism or other misconduct.
+If you knowingly provide or show your assignment work to another person for any
+reason, and work derived from it is submitted you may be penalized, even
+if the work was submitted without your knowledge or consent.  This may
+apply even if your work is submitted by a third party unknown to you.
+</p><p>
+Note, you will not be penalized if your work is
+taken without your consent or knowledge.
+
+</p><h2>Submission of Work</h2>
+
+You are required to submit intermediate versions of your assignment.
+<p>
+Every time you work on the assignment and make some progress you
+should copy your work to your CSE account and submit it using the give command below.
+</p><p>
+It is fine if intermediate versions do not compile or otherwise
+fail submission tests.
+</p><p>
+Only the final submitted version of your assignment will be marked.
+</p><p>
+All these intermediate versions of your work will be placed in a git repo
+and made available to you via a web interface at this URL, replace <i>z5555555</i> with your zpass.
+<code>https://gitlab.cse.unsw.edu.au/<i>z5555555</i>/18s1-comp1511-ass1/commits/master</code>
+</p><p>
+This will allow you to retrieve earlier versions of your code if needed.
+</p><p>
+You submit your work like this:
+</p><p>
+</p><pre class="command_line"><kbd class="shell">give cs1511 ass1 time2code.c</kbd>
+</pre>
+<h2>Assessment</h2>
+<p>
+This assignment will contribute 6% to your final mark.
+</p><p>
+75% of the marks for this assignment will be based on correctness of
+your <i>get_local_time</i> function.  This will be assessed by automated testing
+on inputs that you will not be shown before the assignment is due.
+You will need to write your own extensive set of unit tests,
+so that you can catch any bugs in your program before you submit it.
+</p><p>
+15% of the marks for assignment 1 will come from hand marking of the readability
+of the C you have written.  These marks will be awarded on the basis of clarity,
+commenting, elegance and style.  In other words, your tutor will assess how
+easy it is for a human to read and understand your program.
+</p><p>
+10% of the marks for assignment 1 will come from hand marking of the unit tests
+you add to <i>run_unit_tests</i>.
+
+Here is an indicative marking scheme.
+</p><p>
+</p><table class="table table-bordered table-striped">
+<tbody><tr><td>100%</td><td>works on all inputs, comprehensive well-explained unit tests, beautiful code
+</td></tr><tr><td>75%</td><td>works on most inputs, many unit tests added, code is readable
+</td></tr><tr><td>55%</td><td>works on some inputs, some unit tests added, code is sort of readable
+</td></tr><tr><td>-70%</td><td>Knowingly providing your work to anyone and it is subsequently submitted (by anyone).
+</td></tr><tr><td>-70%</td><td>Submitting any other person's work. This includes joint work.
+</td></tr><tr><td>0 FL for COMP1511</td><td>Paying another person to complete work. Submitting another person's work without their consent.
+</td></tr></tbody></table>
+<p>
+The lecturer may vary the assessment scheme after inspecting
+the assignment submissions but it will remain broadly similar to the description above.
+
+
+
+</p><h2>Due Date</h2>
+
+This assignment is tentatively due  Tuesday 10 April 23:59:59
+<p>
+If your assignment is submitted after this date, each hour it is late reduces
+the maximum mark it can achieve by 2%.
+For example if an assignment worth 74% was submitted
+10 hours late, the late submission would have no effect.
+If the same assignment was submitted 15 hours late it would be awarded
+70%, the maximum mark it can achieve at that time.
+
+
+
+
+
+
+</p><footer class="mt-3 container text-center no-print">
+<p class="text-muted">
+<strong>COMP1511 18s1: Programming Fundamentals</strong>
+is brought to you by <br>
+the <a href="https://www.cse.unsw.edu.au/">School of Computer Science and Engineering</a>
+at the <a href="https://www.unsw.edu.au/">University of New South Wales</a>, Sydney.<br>
+For all enquiries, please email the class account at
+<a href="mailto:@cse.unsw.edu.au">cs1511@cse.unsw.edu.au</a><br>
+
+<small>CRICOS Provider 00098G</small>
+</p>
+
+
+
+</footer>
+
+
+
+
+
+</body></html>
